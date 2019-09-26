@@ -101,3 +101,63 @@ $ docker-machine ip
 TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
 n-apache2-solution
 $
+
+--------------------------------------------------------------------------------------------------
+
+verBootstrap   : Eureka environment value eureka.environment is not set, default
+ing to test
+2019-09-26 10:49:21.078  INFO 1 --- [      Thread-10] o.s.c.n.e.server.EurekaSer
+verBootstrap   : isAws returned false
+2019-09-26 10:49:21.079  INFO 1 --- [      Thread-10] o.s.c.n.e.server.EurekaSer
+verBootstrap   : Initialized server context
+2019-09-26 10:49:21.080  INFO 1 --- [      Thread-10] c.n.e.r.PeerAwareInstanceR
+egistryImpl    : Got 1 instances from neighboring DS node
+2019-09-26 10:49:21.082  INFO 1 --- [      Thread-10] c.n.e.r.PeerAwareInstanceR
+egistryImpl    : Renew threshold is: 1
+2019-09-26 10:49:21.083  INFO 1 --- [      Thread-10] c.n.e.r.PeerAwareInstanceR
+egistryImpl    : Changing status to UP
+2019-09-26 10:49:21.121  INFO 1 --- [      Thread-10] e.s.EurekaServerInitialize
+rConfiguration : Started Eureka Server
+2019-09-26 10:49:21.348  INFO 1 --- [           main] s.b.c.e.t.TomcatEmbeddedSe
+rvletContainer : Tomcat started on port(s): 4001 (http)
+2019-09-26 10:49:21.350  INFO 1 --- [           main] c.n.e.EurekaDiscoveryClien
+tConfiguration : Updating port to 4001
+2019-09-26 10:49:21.359  INFO 1 --- [           main] com.way2learnonline.Eureka
+Server         : Started EurekaServer in 19.79 seconds (JVM running for 20.675)
+2019-09-26 10:49:38.305  INFO 1 --- [nio-4001-exec-1] o.a.c.c.C.[Tomcat].[localh
+ost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-09-26 10:49:38.307  INFO 1 --- [nio-4001-exec-1] o.s.web.servlet.Dispatcher
+Servlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2019-09-26 10:49:38.368  INFO 1 --- [nio-4001-exec-1] o.s.web.servlet.Dispatcher
+Servlet        : FrameworkServlet 'dispatcherServlet': initialization completed
+in 61 ms
+2019-09-26 10:50:21.097  INFO 1 --- [a-EvictionTimer] c.n.e.registry.AbstractIns
+tanceRegistry  : Running the evict task with compensationTime 0ms
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/02-running-jar-sol
+ution
+$ history
+    1  docker ps
+    2  cd C:\Users\Admin\Downloads\docker-labs\01-static-webapp-in-apache2-solut
+ion
+    3  cd /c/Users/Admin/Downloads/docker-labs/01-static-webapp-in-apache2-solut
+ion/
+    4  ls
+    5  docker build -t siva-apache .
+    6  docker images
+    7  docker run -P siva-apache
+    8  docker ps
+    9  docker-machine ip
+   10  cd ..
+   11  cd 02-running-jar-solution/
+   12  ls -ltr
+   13  docker build -t eurekatest
+   14  docker build -t eurekatest .
+   15  docker images
+   16  docker run eurekatest
+   17  docker run -p"1234:4001" eurekatest
+   18  history
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/02-running-jar-sol
+ution
+$
