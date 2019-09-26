@@ -1,3 +1,103 @@
 http://resources.way2learnonline.com/micro2019/
 
 http://resources.way2learnonline.com/micro
+
+---------------------------------------------------------------------------------------------------------------------------------
+DOCKER Demo in Docker toolbox
+
+
+Start interactive shell
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 /c/Program Files/Docker Toolbox
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED
+STATUS              PORTS               NAMES
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 /c/Program Files/Docker Toolbox
+$ cd C:\Users\Admin\Downloads\docker-labs\01-static-webapp-in-apache2-solution
+bash: cd: C:UsersAdminDownloadsdocker-labs01-static-webapp-in-apache2-solution:
+No such file or directory
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 /c/Program Files/Docker Toolbox
+$ cd /c/Users/Admin/Downloads/docker-labs/01-static-webapp-in-apache2-solution/
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$ ls
+Dockerfile  public_html/
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$ docker build -t siva-apache .
+Sending build context to Docker daemon  3.584kB
+Step 1/2 : FROM httpd:2.4
+2.4: Pulling from library/httpd
+b8f262c62ec6: Pull complete
+2c31b9311798: Pull complete
+7422a3cdf4e3: Pull complete
+1919d4fbf9e1: Pull complete
+60812fa1ab4c: Pull complete
+Digest: sha256:39d7d9a3ab93c0ad68ee7ea237722ed1b0016ff6974d80581022a53ec1e58797
+Status: Downloaded newer image for httpd:2.4
+ ---> 19459a872194
+Step 2/2 : COPY ./public_html/ /usr/local/apache2/htdocs/
+ ---> 0043916a74eb
+Successfully built 0043916a74eb
+Successfully tagged siva-apache:latest
+SECURITY WARNING: You are building a Docker image from Windows against a non-Win
+dows Docker host. All files and directories added to build context will have '-r
+wxr-xr-x' permissions. It is recommended to double check and reset permissions f
+or sensitive files and directories.
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED
+SIZE
+siva-apache         latest              0043916a74eb        28 seconds ago
+154MB
+httpd               2.4                 19459a872194        13 days ago
+154MB
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$ docker run -P siva-apache
+AH00558: httpd: Could not reliably determine the server's fully qualified domain
+ name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress thi
+s message
+AH00558: httpd: Could not reliably determine the server's fully qualified domain
+ name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress thi
+s message
+[Thu Sep 26 10:37:23.618644 2019] [mpm_event:notice] [pid 1:tid 140278122984576]
+ AH00489: Apache/2.4.41 (Unix) configured -- resuming normal operations
+[Thu Sep 26 10:37:23.619036 2019] [core:notice] [pid 1:tid 140278122984576] AH00
+094: Command line: 'httpd -D FOREGROUND'
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND              CREATED
+ STATUS              PORTS                   NAMES
+ba287082a10d        siva-apache         "httpd-foreground"   15 seconds ago
+ Up 15 seconds       0.0.0.0:32768->80/tcp   infallible_roentgen
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$ docker-machine ip
+192.168.99.100
+
+TRNROOM2-10+Admin@TRNROOM2-10 MINGW64 ~/Downloads/docker-labs/01-static-webapp-i
+n-apache2-solution
+$
